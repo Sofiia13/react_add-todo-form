@@ -42,8 +42,12 @@ export const App = () => {
       return;
     }
 
+    const maxId =
+      todoList.length > 0 ? Math.max(...todoList.map(todo => todo.id)) : 0;
+    const newId = maxId + 1;
+
     const newTodo = {
-      id: todoList.length + 1,
+      id: newId,
       title: trimmedTitle,
       userId: selectedUser.id,
       completed: false,
